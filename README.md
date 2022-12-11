@@ -26,4 +26,4 @@ user@machine:~$ asciify video.asciivid play
 
 - Refactoring
 - Add `stream` option.
-- Better error handleing
+- Better error handling
