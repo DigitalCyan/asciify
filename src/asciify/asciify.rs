@@ -51,6 +51,8 @@ pub fn process_args(args: CLIArgs) {
                 println!("Failed to save ASCII video.");
                 std::process::exit(1);
             });
+
+            let _ = fs::remove_dir_all("/tmp/frames");
         }
     }
 }
@@ -73,8 +75,6 @@ pub fn load_image_sequence(settings: &LoadSettings) -> Result<ASCIIVideo, Box<dy
 
     for i in 1..frame_count {
         let file_name = format!("{}.bmp", i);
-
-        println!("Loading {}", file_name);
 
         let image = open(path.join(file_name))?;
 
@@ -112,8 +112,6 @@ pub fn load_n_images(settings: &LoadSettings, n: usize) -> Result<ASCIIVideo, Bo
 
     for i in 1..n {
         let file_name = format!("{}.bmp", i);
-
-        println!("Loading {}", file_name);
 
         let image = open(path.join(file_name))?.grayscale();
 

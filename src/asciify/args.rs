@@ -21,9 +21,16 @@ pub enum Mode {
 
 #[derive(Args)]
 pub struct ConvertArgs {
+    /// The framerate of the video
     pub framerate: u32,
+
+    /// Downscale multiplayer (recommended: 5..10). Larger number means smaller output resoltuion.
     pub step: u32,
+
+    /// Name of the ASCII video file
     pub save_path: String,
+
+    /// Number of frames to load
     pub frame_count: Option<usize>
 }
 
